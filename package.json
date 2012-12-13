@@ -1,0 +1,10 @@
+{
+  "name": "trees",
+  "version": "0.0.1b",
+  "main": "index.js",
+  "author": "Brandon Buck <buckbe1112@gmail.com>",
+  "dependencies": {
+    "coffee-script": "*",
+    "underscore": "*"
+  }
+}
