@@ -2,9 +2,10 @@
   "name": "trees",
   "version": "0.0.1b",
   "main": "index.js",
-  "author": "Brandon Buck <buckbe1112@gmail.com>",
+  "author": "Brandon Buck <lordizuriel@gmail.com>",
+  "bin": "./bin/trees",
   "dependencies": {
-    "coffee-script": "*",
-    "underscore": "*"
+    "underscore": "~> 1.5.2",
+    "commander": "~> 2.0.0"
   }
 }
