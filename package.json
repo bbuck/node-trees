@@ -1,6 +1,6 @@
 {
   "name": "tree-server",
-  "version": "0.0.1a",
+  "version": "0.0.2a",
   "main": "index.js",
   "author": {
     "name": "Brandon Buck",
@@ -12,7 +12,7 @@
   "homepage": "http://blog.brandonbuck.me/trees/",
   "issues": "https://github.com/bbuck/trees/issues",
   "license": "mit",
-  "bin": "./bin/trees",
+  "bin": { "trees": "./bin/trees" },
   "repository": {
     "type": "git",
     "url": "https://github.com/bbuck/trees"

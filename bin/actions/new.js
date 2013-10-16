@@ -18,7 +18,7 @@ module.exports = function(program, pkg) {
     '  },',
     '  "dependencies": {',
     '    "express": "3.4.0",',
-    '    "trees": "' + pkg.version + '",',
+    '    "tree-server": "' + pkg.version + '",',
     '    "hjs": "*",',
     '    "ooj": "~> 0.1.0"',
     '  }',
@@ -63,7 +63,7 @@ module.exports = function(program, pkg) {
 
   var index = [
     'var path = require("path"),',
-    '    trees = require("trees"),',
+    '    trees = require("tree-server"),',
     '    http = require("http"),',
     '    app = require("./scripts/app"),',
     '    rootPath = path.dirname(__filename);',
