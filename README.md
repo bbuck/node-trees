@@ -14,7 +14,7 @@ these instructions are almost guaranteed to change soon or break.
 Install the trees module globally first.
 
 ```
-$ npm install -g trees
+$ npm install -g tree-server
 ```
 
 ### Create a New Trees Application
