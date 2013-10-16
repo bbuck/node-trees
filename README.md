@@ -39,7 +39,7 @@ module.exports = ooj.Class({
   // is written it will no longer be necessary.
   construct: function(req, res, next) {
     this.request = req,
-    this.response = response,
+    this.response = res,
     this.next = next;
   },
 
