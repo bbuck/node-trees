@@ -48,7 +48,7 @@ module.exports = function(program, pkg) {
     'if ("production" === app.get("env")) {',
     '  app.use(express.compress());',
     '}',
-    'app.use(express.cookieParser("your secret goes here");',
+    'app.use(express.cookieParser("your secret goes here"));',
     'app.use(express.session());',
     'app.use(express.bodyParser());',
     'app.use(express.methodOverride());',

@@ -1,6 +1,6 @@
 {
   "name": "tree-server",
-  "version": "0.0.2a",
+  "version": "0.0.3a",
   "main": "index.js",
   "author": {
     "name": "Brandon Buck",
