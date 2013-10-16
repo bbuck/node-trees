@@ -2,10 +2,25 @@
   "name": "trees",
   "version": "0.0.1b",
   "main": "index.js",
-  "author": "Brandon Buck <lordizuriel@gmail.com>",
+  "author": {
+    "name": "Brandon Buck",
+    "email": "<lordizuriel@gmail.com>",
+    "url": "http://blog.brandonbuck.me"
+  },
+  "description": "A wrapper for express to provide a more structured approach to webserver development.",
+  "keyworkds": ["express", "trees", "webserver", "http", "mvc"],
+  "homepage": "http://blog.brandonbuck.me/trees/",
+  "issues": "https://github.com/bbuck/trees/issues",
+  "license": "mit",
   "bin": "./bin/trees",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bbuck/trees"
+  },
   "dependencies": {
     "underscore": "~> 1.5.2",
-    "commander": "~> 2.0.0"
+    "commander": "~> 2.0.0",
+    "ooj": "~> 0.1.0",
+    "methods": "~> 0.0.1"
   }
 }
