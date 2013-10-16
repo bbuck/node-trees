@@ -20,7 +20,8 @@ module.exports = function(program, pkg) {
     '    "express": "3.4.0",',
     '    "tree-server": "' + pkg.version + '",',
     '    "hjs": "*",',
-    '    "ooj": "~> 0.1.0"',
+    '    "ooj": "~> 0.1.0",',
+    '    "i": "~> 0.3.2"',
     '  }',
     '}'
   ].join(eol);
