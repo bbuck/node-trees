@@ -1,4 +1,6 @@
 module.exports = {
-  Router: require("./lib/router"),
-  RouteHandler: require("./lib/route_handler")
+  BaseController: require("./lib/base_controller"),
+  Configuration: require("./lib/configuration"),
+  RouteHandler: require("./lib/route_handler"),
+  Router: require("./lib/router")
 };

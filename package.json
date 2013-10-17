@@ -1,6 +1,6 @@
 {
   "name": "tree-server",
-  "version": "0.0.3a",
+  "version": "0.0.4a",
   "main": "index.js",
   "author": {
     "name": "Brandon Buck",
@@ -21,6 +21,7 @@
     "underscore": "~> 1.5.2",
     "commander": "~> 2.0.0",
     "ooj": "~> 0.1.0",
-    "methods": "~> 0.0.1"
+    "methods": "~> 0.0.1",
+    "i": "*"
   }
 }

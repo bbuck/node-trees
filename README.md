@@ -22,52 +22,98 @@ $ npm install -g tree-server
 ```
 $ trees new application
 $ cd application
-$ npm install -d
+$ npm install
 ```
 
 ### Create A Controller
 
-Create a file `application/app/controllers/pages.js`
+Review the default generated controller. You should see:
 
 ```javascript
-// This is not totally necessary now, but once base Controllers are implemented
-// this will greatly help in simplyfing inheritance
-var ooj = require("ooj");
+var ooj = require("ooj"),
+    BaseController = require("tree-server").BaseController;
 
+// Define our Pages Controller, the use of OOJ is here to make extending
+// the BaseController simpler and less involved.
 module.exports = ooj.Class({
-  // This function is required now but as soon as a base Controller class
-  // is written it will no longer be necessary.
-  construct: function(req, res, next) {
-    this.request = req,
-    this.response = res,
-    this.next = next;
-  },
+  // Grab functionality in the Base Controller
+  extend: BaseController,
 
-  // This is our action
+  // This is the home action, actions are just named functions inside of a
+  // controller
   home: function() {
-    // Views are not wired in yet so it's best to keep your samples short and
-    // simple (response.end)
-    return this.response.end("<h1>Hello, World!</h1>");
+    // Anything attached to viewData will be passed to the view when it is
+    // rendered.
+    this.viewData.name = "World";
+
+    // There was no render or send call specified, which means that trees
+    // will look for app/views/pages/home.jade to render. We can specify
+    // a render if we want something different
+    //   this.render("alt_home");
+    // The above will look for app/views/pages/alt_home.jade
   }
 });
 ```
 
-Now we need to tell trees when to access your action. Open up `application/config/routes.js`
+Check the `config/routes.js` and see how trees knows which controller and action
+to perform for which route. You can see we've defined the root path (`/`) to point
+to the `pages` controllers `home` action.
 
 ```javascript
 var app = require("../scripts/app");
 
 app.trees.router.draw(function() {
   // You should set a default route for your root path
+  //   this.root({to: {controller: "controller", action: "action"}});
+  //  OR
   //   this.root({to: "controller#action"});
   //  OR
-  //   this.root({to: {controller: "controller", action: "action"}});
+  //   this.root("controller#action");
 
-  // Add this line here, the above is incorrect (for now) as the root function
-  // doesn't exist yet.
-  this.get("/", {handler: "pages#home"});
+  this.root("pages#home");
+
+  // Use match to match arbitrary routes
+  //   this.match("posts", {handler: "posts#index", via: "get"});
+
+  // Use specific methods if you need to.
+  //  this.get("post/:post_id/comments", "post#comments");
+  //  this.delete("post", "post#delete");
+
+  // Use resources to specify standard CRUD routes for a certain resource
+  //   this.resources("posts");
+  // Gives you:
+  //   GET /posts => "posts#index"
+  //   GET /posts/new => "posts#new"
+  //   POST /posts => "posts#create"
+  //   (express param) :post_id => "posts#load_post"
+  //   GET /posts/:post_id => "posts#show"
+  //   GET /posts/:post_id/edit => "posts#edit"
+  //   PUT/PATCH /posts/:post_id => "posts#update"
+  //   DELETE /posts/:post_id => "posts#delete"
+
+  // Use namespaces to group routes
+  //   this.namespace("admin", function() {
+  //     this.root({to: "admin#home"}); // => GET /admin
+  //     this.get("control_panel", "admin#control_panel"); // GET /admin/control_panel
+  //   });
 });
 ```
+
+**NOTE:** The `resources` has not yet been implemented and `namespace` has not
+been fully tested so may not function properly with views/controllers.
+
+Finally we'll check the view that is rendered at `app/views/pages/home.jade`:
+
+```jade
+extends ../layouts/application
+
+block body
+  div
+    h1 Hello, #{name}
+```
+
+This view extends the base application layout and simply outputs a `div` with
+an `h1` inside of it.
 
 ### Run Trees!
 

@@ -18,6 +18,7 @@ try {
   require("./actions/" + action)(program, package);
 }
 catch (ex) {
+  console.log(ex);
   console.log("Unknown action \"" + action + "\"");
   process.exit();
 }
