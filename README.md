@@ -1,3 +1,5 @@
+**THIS PROJECT IS NO LONGER ACTIVE**
+
 # Trees
 
 Trees is a wrapper around the very awesome express.js module that provides a
